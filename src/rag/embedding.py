@@ -23,7 +23,7 @@ class EmbeddingPipeline:
         print(f"[INFO] Split {len(documents)} documents into {len(chunks)} chunks.")
         return chunks
 
-    def embed_chunk(self, chunks:List[Any]) -> np.ndarray:
+    def embed_chunks(self, chunks:List[Any]) -> np.ndarray:
         texts = [chunk.page_content for chunk in chunks]
         print(f"[INFO] Generating embeddings for {len(texts)} chunks...")
         embeddings = self.model.encode(texts, show_progress_bar=True)
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     chunks = emb_pipe.chunk_documents(docs)
 
     # Generate embeddings for the chunks
-    embeddings = emb_pipe.embed_chunk(chunks)
+    embeddings = emb_pipe.embed_chunks(chunks)
 
     print("[INFO] Example embedding:", embeddings[0] if len(embeddings) > 0 else None)

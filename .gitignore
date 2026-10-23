@@ -215,6 +215,7 @@ cython_debug/
 
 # Ignore data folder
 data/
+faiss_store/
 
 # Marimo
 marimo/_static/
